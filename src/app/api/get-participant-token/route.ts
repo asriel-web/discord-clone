@@ -14,8 +14,23 @@ export async function GET(req: NextRequest) {
 	const apiSecret = process.env.LIVEKIT_API_SECRET;
 	const wsUrl = process.env.NEXT_PUBLIC_LIVEKIT_URL;
 
+	// if (!apiKey || !apiSecret || !wsUrl) {
+	// 	return NextResponse.json({ error: "Server misconfigured" }, { status: 500 });
+	// }
+
+	// testing
+	console.log("LIVEKIT CONFIG CHECK:", {
+		hasApiKey: !!apiKey,
+		hasApiSecret: !!apiSecret,
+		hasWsUrl: !!wsUrl,
+		wsUrl: wsUrl,
+	});
+
 	if (!apiKey || !apiSecret || !wsUrl) {
-		return NextResponse.json({ error: "Server misconfigured" }, { status: 500 });
+		return NextResponse.json(
+			{ error: "Server misconfigured" },
+			{ status: 500 }
+		);
 	}
 
 	const at = new AccessToken(apiKey, apiSecret, { identity: username });

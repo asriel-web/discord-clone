@@ -33,7 +33,7 @@ export function EditServerModal() {
 
 	const schema = z.object({
 		name: z.string().min(1, { message: "Server name is required" }),
-		imageUrl: z.string().min(1, { message: "Image URL is invalid" }),
+		imageUrl: z.string().min(1, { message: "Image URL is invalid2" }),
 	});
 	const form = useForm({
 		resolver: zodResolver(schema),
