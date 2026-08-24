@@ -4,6 +4,8 @@ import { getCurrentProfile } from "@/lib/query";
 import { Message } from "@prisma/client";
 import { NextResponse } from "next/server";
 
+export const dynamic = "force-dynamic";
+
 const MESSAGE_BATCH = 10;
 
 export async function GET(req: Request) {
