@@ -2,7 +2,9 @@ import { prisma } from "@/lib/prismadb";
 import { getCurrentProfile } from "@/lib/query";
 import { MemberRole } from "@prisma/client";
 import { NextResponse } from "next/server";
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
+
+export const dynamic = "force-dynamic";
 
 export async function POST(req: Request) {
 	try {
