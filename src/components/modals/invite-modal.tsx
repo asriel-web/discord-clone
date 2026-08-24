@@ -18,6 +18,7 @@ export function InviteModal() {
 	const data = useStore.use.data();
 	const isModelOpen = isOpen && type === "invite";
 	const origin = useOrigin();
+	const appUrl = process.env.NEXT_PUBLIC_APP_URL || origin;
 
 	const [copied, setCopied] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
@@ -42,7 +43,8 @@ export function InviteModal() {
 		}
 	};
 
-	const inviteUrl = `${origin}/invite/${data?.server?.inviteCode}`;
+	// const inviteUrl = `${origin}/invite/${data?.server?.inviteCode}`;
+	const inviteUrl = `${appUrl}/invite/${data?.server?.inviteCode}`;
 
 	return (
 		<Dialog open={isModelOpen} onOpenChange={onClose}>
