@@ -4,11 +4,24 @@ import { auth } from "@clerk/nextjs/server";
 
 const f = createUploadthing();
 
+// const handleAuth = async () => {
+//     const user = await auth();
+//     if (!user) throw new UploadThingError("Unauthorized");
+//     return { userId: user.userId };
+// }
 const handleAuth = async () => {
     const user = await auth();
-    if (!user) throw new UploadThingError("Unauthorized");
+
+    console.log("=== UPLOADTHING AUTH DEBUG ===");
+    console.log("userId:", user.userId);
+    console.log("user:", user);
+
+    if (!user.userId) {
+        throw new UploadThingError("Unauthorized");
+    }
+
     return { userId: user.userId };
-}
+};
 
 // FileRouter for your app, can contain multiple FileRoutes
 export const ourFileRouter = {
