@@ -8,4 +8,11 @@ export const { GET, POST } = createRouteHandler({
 
 	// Apply an (optional) custom config:
 	// config: { ... },
+	config: {
+		uploadthingId: process.env.UPLOADTHING_APP_ID,
+		uploadthingSecret: process.env.UPLOADTHING_SECRET,
+		logLevel: "debug",
+	},
 });
+
+
